@@ -3,9 +3,9 @@ myMap.set ('name:', 'Elizabet');
 myMap.set ('age:', 10);
 myMap.set ('occupation:','study at school');
 
-for (let name of myMap.keys()){
-  console.log (`ключ - ${name}`);
+function printmyMap(){
+    myMap.forEach((value, key) =>{
+        console.log(`Ключ - ${key}, значение - ${value}`);
+    })
 }
-for (let value of myMap.values()){
-  console.log (`значение - ${value}`);
-}
+printmyMap();
