@@ -1,20 +1,25 @@
-var arr = [1, 3, 0, '', 8, 16];
-var s=0;
-var m=0;
-var n=0;
+let arr = [1, 3, 0, '', 8, 16, NaN, null, undefined, '58', true, false, []];
+let zero = 0, even = 0, odd = 0;
 
 for (let i=0; i < arr.length; i++){
-  if (arr[i] === 0){
-    n++;
-  } else if (arr[i] % 2 == 0 && arr[i] != 0 && arr[i] != ''){
-    s++;
+  if (typeof arr[i] === 'number' && !isNaN(arr[i])) {
+    if (arr[i] === 0) {
+      zero++;
+    } else if (arr[i] % 2 === 0) {
+      even++;
+    } else {
+      odd++;
+    }
   }
-else if (arr[i] % 2 !== 0 && arr[i] != 0 && arr[i] != ''){
-    m++;
 }
-}
-console.log(`number of null elements in array is: ${n}`);
+console.log(`number of null elements in array is: ${zero}`);
 
-console.log(`number of even elements in array is: ${s}`);
+console.log(`number of even elements in array is: ${even}`);
   
-console.log(`number of odd elements in array is: ${m}`);
+console.log(`number of odd elements in array is: ${odd}`);
+
+// Задание выполнено неверно. По условию в массиве могут быть абсолютно любые значения, не только числа и пустые строки. Поэтому проверка на тип нужна обязательно, чтобы работать только с числами, а остальные значения - отсеять. Выше показала, как было бы правильно.
+// Также есть пара мелких замечаний по коду:
+// - старайтесь не использовать ключевое слово var для объявления переменных, это устаревший оператор. Лучше пользоваться более современными let или const 
+// - старайтесь давать переменным осмысленные имена, чтобы было сразу понятно, что в них содержится
+// - при объявлении нескольких переменных сразу, можно использовать укороченную запись, выше исправила
